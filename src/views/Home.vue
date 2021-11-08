@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Wrap">
     <Topnav />
     <div class="banner">
       <h1>wlinUi3.0</h1>
@@ -18,6 +18,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.Wrap {
+  box-sizing: border-box;
+  padding-top: 70px;
+}
 .banner {
   padding: 100px 0;
   display: flex;

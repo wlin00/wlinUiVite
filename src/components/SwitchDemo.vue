@@ -1,56 +1,22 @@
 <template>
-  <div>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-    <p>Switch 的文档</p>
-
-  </div>
+  <Switch :value="checked" @input="checked = $event"/>
 </template>
+<script lang="ts">
+import { ref } from 'vue'
+import Switch from '../lib/Switch.vue'
+export default {
+  components: {
+    Switch,
+  },
+  setup() {
+    const checked = ref(false)
+    return {
+      checked
+    }
+  }
+  
+}
+</script>
+<style lang="scss">
+  
+</style>
