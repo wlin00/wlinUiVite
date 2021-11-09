@@ -1,5 +1,5 @@
 <template>
-  <button :class="{'checked': value}" @click="toggle">
+  <button :class="{'checked': value, 'disabled': disabled}" @click="toggle">
     <span></span>
   </button>
 </template>
@@ -10,11 +10,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled: Boolean,
   },
   setup(props, context) {
     const toggle = () => {
+      if (props.disabled) {
+        return
+      }
       console.log('vvvv', props.value)
-      context.emit('input', !props.value)
+      context.emit('update:value', !props.value)
     }
     return {
       toggle
@@ -29,7 +33,7 @@ export default {
   $slide-to-left: 2px;
   // $slide-to-right: calc(100% - #{$h2} - 2px);
   span {
-    transition: left .2s;
+    transition: all .2s;
     position: absolute;
     top: 2px;
     // left: 2px;
@@ -46,12 +50,25 @@ export default {
     background: gray;
     border-radius: $h / 2;
     position: relative;
+    cursor: pointer;
+    &:active {
+      > span { width: $h2 + 4px; }
+    }
+    &:focus {
+      outline: none;
+    }
     &.checked {
       background: #39f;
       > span {
         left: calc(100% - #{$h2} - 2px);
       }
-    } 
+      &:active {
+        > span { width: $h2 + 4px; margin-left: -4px; }
+      }
+    }
+    &.disabled {
+      cursor: not-allowed;
+    }
   }
   
 </style>
