@@ -1,6 +1,6 @@
 <template>
-  <button :class="{'checked': value, 'disabled': disabled}" @click="toggle">
-    <span></span>
+  <button class="wlin-switch" :class="{'checked': value, 'disabled': disabled}" @click="toggle">
+    <span class="wlin-switch__span"></span>
   </button>
 </template>
 <script lang="ts">
@@ -27,30 +27,30 @@ export default {
   
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   $h: 22px;
   $h2: $h - 4px;
   $slide-to-left: 2px;
-  // $slide-to-right: calc(100% - #{$h2} - 2px);
-  span {
-    transition: all .2s;
-    position: absolute;
-    top: 2px;
-    // left: 2px;
-    left: $slide-to-left;
-    height: $h2;
-    width: $h2;
-    background: #fff;
-    border-radius: $h2 / 2;
-  }
-  button {
-    height: $h;
-    width: $h * 2;
-    border: none;
-    background: gray;
-    border-radius: $h / 2;
+  .wlin-switch {
+    height: $h; 
+    width: $h * 2; 
+    border: none; 
+    background: #bfbfbf; 
+    border-radius: $h/2; 
     position: relative;
     cursor: pointer;
+
+    &__span {
+      transition: all .2s;
+      position: absolute;
+      top: 2px;
+      // left: 2px;
+      left: $slide-to-left;
+      height: $h2;
+      width: $h2;
+      background: #fff;
+      border-radius: $h2 / 2;
+    }
     &:active {
       > span { width: $h2 + 4px; }
     }
@@ -70,5 +70,6 @@ export default {
       cursor: not-allowed;
     }
   }
+
   
 </style>
