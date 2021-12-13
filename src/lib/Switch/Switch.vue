@@ -17,7 +17,6 @@ export default {
       if (props.disabled) {
         return
       }
-      console.log('vvvv', props.value)
       context.emit('update:value', !props.value)
     }
     return {

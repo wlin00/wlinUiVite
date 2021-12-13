@@ -31,8 +31,12 @@ import { inject, Ref } from "vue";
 export default {
   components: { Topnav },
   setup() {
-    const asideVisible = inject<Ref<boolean>>("asideVisible"); // get
-    return { asideVisible };
+    const asideVisible = inject<Ref<boolean>>("asideVisible") // inject
+    const handleClickoutside = () => {
+      console.log('outside')
+      asideVisible.value = false
+    }
+    return { asideVisible , handleClickoutside};
   },
 };
 </script>
@@ -61,7 +65,7 @@ export default {
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: lightgreen;
+    background: #fff;
   }
 }
 aside {
