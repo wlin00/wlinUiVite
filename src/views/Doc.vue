@@ -70,6 +70,7 @@ export default {
 }
 aside {
   background: lightblue;
+  box-sizing: border-box;
   width: 150px;
   padding: 16px;
   position: fixed;
