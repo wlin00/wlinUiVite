@@ -7,9 +7,10 @@ import TabsDemo from "./components/TabsDemo.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 //@ts-ignore
 import { h } from 'vue';
-
+import MarkDownWrap from './components/MarkDownWrap.vue';
 const history = createWebHashHistory();
-const md = (fileName) => h('MarkDownWrap', { key: fileName, path: `./markdown/${fileName}.md` });
+// 用于动态渲染md文件
+const md = (fileName: String) => h(MarkDownWrap, { key: fileName, path: `../markdown/${fileName}.md` });
 export const router = createRouter({
   history,
   routes: [
@@ -20,9 +21,9 @@ export const router = createRouter({
       redirect: '/doc/intro',
       children: [
         // 介绍 - 安装 - 开始
-        { path: 'intro', md('intro')},
-        { path: 'install', component: () => h('MarkDownWrap', {key: './markdown/install', path: './markdown/install' }) },
-        { path: 'start', component:() => h('MarkDownWrap', {key: './markdown/start', path: './markdown/install' }) },
+        { path: 'intro', component: md('intro') },
+        { path: 'install', component: md('install') },
+        { path: 'start', component: md('start') },
 
         { path: 'switch', component: SwitchDemo },
         { path: 'button', component: ButtonDemo },
