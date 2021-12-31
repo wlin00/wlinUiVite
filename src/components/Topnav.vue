@@ -1,8 +1,12 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo" @click="handleBackHome">
+      <svg class="icon">
+        <use xlink:href="#icon-king"></use>
+      </svg>
+    </div>
     <ul class="menu">
-      <router-link to="/" exact class="tab-item" active-class="active-color">主页</router-link>
+      <!-- <router-link to="/" exact class="tab-item" active-class="active-color">主页</router-link> -->
       <router-link to="/doc" exact class="tab-item" active-class="active-color">文档</router-link>
     </ul>
     <span class="toggleAside" @click="toggleMenu"></span>
@@ -10,13 +14,21 @@
 </template>
 <script lang="ts">
 import { inject, Ref } from "vue";
+import { useRouter } from 'vue-router';
 export default {
   setup() {
     const asideVisible = inject<Ref<boolean>>("asideVisible"); // get
+    const router = useRouter()
     const toggleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };
-    return { toggleMenu };
+    const handleBackHome = () => {
+      router.push('/')
+    }
+    return { 
+      toggleMenu,
+      handleBackHome,
+    };
   },
 };
 </script>
@@ -26,13 +38,19 @@ export default {
   color: #39f;
 }
 .tab-item {
+  color: rgb(54, 115, 175);
   display: inline-flex;
   margin-right: 2em;
-  font-size: 1.5em;
+  font-weight: bold;
+  font-size: 1.4em;
   text-decoration: none;
+  &:hover {
+    color: rgb(54, 115, 175);
+    text-decoration: underline;
+  }
 }
 .topnav {
-  background: pink;
+  // background: pink;
   align-items: center;
   display: flex;
   padding: 16px;
@@ -40,12 +58,17 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
   justify-content: center;
   align-items: center;
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    > .icon {
+      width: 32px;
+      height: 32px;
+    }
   }
   > .menu {
     display: flex;

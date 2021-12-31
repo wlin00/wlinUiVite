@@ -20,7 +20,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 * {
   padding: 0;
   margin: 0;
@@ -28,6 +28,16 @@ export default {
 }
 #app {
   margin-top: 0 !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  >div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
 }
   
 </style>
