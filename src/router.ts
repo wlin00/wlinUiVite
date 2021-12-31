@@ -1,4 +1,4 @@
-import Home from "./views/Home.vue";
+import Home from "../src/views/Home.vue";
 import Doc from "./views/Doc.vue";
 import SwitchDemo from "./components/SwitchDemo.vue";
 import ButtonDemo from "./components/ButtonDemo.vue";

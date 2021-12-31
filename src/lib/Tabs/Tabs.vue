@@ -12,7 +12,7 @@
       <div ref="indicator" class="wlin-tabs__indicator"></div>
     </div>
     <div class="wlin-tabs__contentWrap">
-      <component class="wlin-tabs__content" :key="currentComponent" :is="currentComponent.props.title"></component>
+      <component class="wlin-tabs__content" :key="currentComponent.props.title" :is="currentComponent.props.title"></component>
     </div>
   </div>
 </template>

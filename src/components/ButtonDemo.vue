@@ -1,76 +1,33 @@
 <template>
-  <div>Button 示例</div>
-  <h1>示例1</h1>
-  <div class="wrap">
-    <Button @click="onClick">你好</Button>
-    <Button theme="button">你好</Button>
-    <Button theme="link">你好</Button>
-    <Button theme="text">你好</Button>
-  </div>
-  <h1>示例2</h1>
-  <div>
-    <div class="wrap">
-      <Button size="big">大大大</Button>
-      <Button>普普通</Button>
-      <Button size="small">小小小</Button>
-    </div>
-    <div class="wrap">
-      <Button theme="link" size="big">大大大</Button>
-      <Button theme="link">普普通</Button>
-      <Button size="small" theme="link">小小小</Button>
-    </div>
-    <div class="wrap">
-      <Button size="big" theme="text">大大大</Button>
-      <Button theme="text">普普通</Button>
-      <Button size="small" theme="text">小小小</Button>
-    </div>
-  </div>
-  <h1>示例3</h1>
-  <div>
-    <div class="wrap">
-      <Button level="main">主要按钮</Button>
-      <Button>普通按钮</Button>
-      <Button level="danger">危险按钮</Button>
-    </div>
-    <div class="wrap">
-      <Button theme="link" level="main">主要链接按钮</Button>
-      <Button theme="link">普通链接按钮</Button>
-      <Button style="margin-top:10px;" theme="link" level="danger">危险链接按钮</Button>
-    </div>
-    <div class="wrap">
-      <Button theme="text" level="main">主要文字按钮</Button>
-      <Button theme="text">普通文字按钮</Button>
-      <Button style="margin-top:10px;" theme="text" level="danger">危险文字按钮</Button>
-    </div>
-  </div>
-  <h1>示例4</h1>
-  <div class="wrap">
-    <Button disabled>禁用按钮</Button>
-    <Button theme="link" disabled>禁用链接按钮</Button>
-    <Button theme="text" disabled>禁用按钮</Button>
-  </div>
-  <h1>示例5</h1>
-  <div class="wrap">
-    <Button :loading="true">加载中</Button>
-    <Button>加载完毕</Button>
-  </div>
+<div>
+  <h1>Button 示例</h1>
+  <Demo :component="Button1Demo" />
+  <Demo :component="Button2Demo" />
+  <Demo :component="Button3Demo" />
+  <Demo :component="Button4Demo" />
+  <Demo :component="Button5Demo" />
+</div>
 </template>
+
 <script lang="ts">
-import Button from "../lib/Button/Button.vue";
+import Demo from "./Demo.vue";
+import Button1Demo from "./Button1demo.vue";
+import Button2Demo from "./Button2demo.vue";
+import Button3Demo from "./Button3demo.vue";
+import Button4Demo from "./Button4demo.vue";
+import Button5Demo from "./Button5demo.vue";
 export default {
-  components: { Button },
+  components: {
+    Demo
+  },
   setup() {
-    const onClick = () => {
-      console.log("hi");
+    return {
+      Button1Demo,
+      Button2Demo,
+      Button3Demo,
+      Button4Demo,
+      Button5Demo
     };
-    return { onClick };
   },
 };
 </script>
-<style lang="scss" scoped>
-.wrap {
-  margin: 10px 0;
-}
-
-  
-</style>
