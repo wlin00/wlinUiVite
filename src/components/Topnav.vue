@@ -66,11 +66,12 @@ $color: #007974;
   color: $color;
   display: flex;
   padding: 16px;
+  z-index: 998;
+  background: #fff;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 20;
   justify-content: center;
   align-items: center;
   .doc {

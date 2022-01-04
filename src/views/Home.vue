@@ -6,7 +6,7 @@
       <h1>WlinUI3</h1>
       <h2>一个基于Vue3.0的UI框架</h2>
       <p class="actions">
-        <a href="https://github.com">GitHub</a>
+        <a href="https://github.com/wlin00/wlinUiVite">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
     </div>
