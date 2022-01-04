@@ -3,7 +3,7 @@
     <Topnav class="nav" @toggleDoc="asideVisible = !asideVisible" />
     <div class="content">
       <aside v-if="asideVisible">
-        <div>
+        <div class="close-wrap">
           <span class="close-icon" @click="asideVisible = !asideVisible">关闭</span>
         </div>
         <h2 style="color:#333;text-decoration:none;margin-top:20px;">文档</h2>
@@ -56,6 +56,15 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+  .close-wrap {
+    display: none;
+    @media screen and ( max-width: 1930px ) { // 媒介查询
+      display: none;
+    }
+    @media screen and ( max-width: 500px ) { // 媒介查询
+      display: inline-flex;
+    }
+  }
   .close-icon {
     font-size:18px;
     font-weight: bolder;
