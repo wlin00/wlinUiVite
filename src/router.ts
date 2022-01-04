@@ -4,6 +4,11 @@ import SwitchDemo from "./components/SwitchDemo.vue";
 import ButtonDemo from "./components/ButtonDemo.vue";
 import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
+
+import Intro from "./markdown/intro.vue";
+import Install from "./markdown/install.vue";
+import Start from "./markdown/start.vue";
+
 import { createRouter, createWebHashHistory } from "vue-router";
 //@ts-ignore
 import { h } from 'vue';
@@ -21,9 +26,13 @@ export const router = createRouter({
       redirect: '/doc/intro',
       children: [
         // 介绍 - 安装 - 开始
-        { path: 'intro', component: md('intro') },
-        { path: 'install', component: md('install') },
-        { path: 'start', component: md('start') },
+        // { path: 'intro', component: ) },
+        // { path: 'install', component: md('intro') },
+        // { path: 'start', component: md('intro') },
+
+        { path: 'intro', component: Intro },
+        { path: 'install', component: Install },
+        { path: 'start', component: Start },
 
         { path: 'switch', component: SwitchDemo },
         { path: 'button', component: ButtonDemo },
