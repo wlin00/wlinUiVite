@@ -6,8 +6,9 @@
     </svg>
   </router-link>
   <ul class="menu">
-    <li>
-      <router-link to="/doc">文档</router-link>
+    <li class="menu-li">
+      <router-link v-if="currentRoute() === '/'" to="/doc">文档</router-link>
+      <router-link v-else to="/">主页</router-link>
     </li>
   </ul>
   <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
@@ -18,9 +19,14 @@
 
 <script lang="ts">
 import {
+  computed,
   inject,
-  Ref
+  onMounted,
+  toRaw,
+  Ref,
+  onUpdated
 } from "vue";
+import { useRoute, useRouter } from 'vue-router'
 export default {
   props: {
     toggleMenuButtonVisible: {
@@ -29,12 +35,18 @@ export default {
     }
   },
   setup() {
+    const route = useRouter()
     const menuVisible = inject < Ref < boolean >> ("menuVisible"); // get
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value;
     };
+    // 判断当前路由是否主页
+    const currentRoute = (() => {
+      return (toRaw(route)?.currentRoute as any)?._rawValue?.fullPath || '/'
+    })
     return {
-      toggleMenu
+      toggleMenu,
+      currentRoute
     };
   },
 };
@@ -53,6 +65,13 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
+  .menu-li {
+    >a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
   >.logo {
     max-width: 6em;
     margin-right: auto;
@@ -70,6 +89,8 @@ $color: #007974;
     flex-wrap: nowrap;
     >li {
       margin: 0 1em;
+      color: #333;
+      text-decoration: none;
     }
   }
   >.toggleAside {

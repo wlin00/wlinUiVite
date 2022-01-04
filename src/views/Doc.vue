@@ -3,7 +3,7 @@
     <Topnav class="nav" />
     <div class="content">
       <aside v-if="asideVisible">
-        <h2>文档</h2>
+        <h2 style="color:#333;text-decoration:none;">文档</h2>
         <ol>
           <li class="doc-li">
             <router-link to="/doc/intro">介绍</router-link>

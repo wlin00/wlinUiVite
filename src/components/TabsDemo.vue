@@ -1,32 +1,21 @@
-<template>
-  <Tabs v-model:value="selected">
-    <Tab title="导航1">内容1</Tab>
-    <Tab title="导航2">内容2</Tab>
-  </Tabs>
-  <!-- <div>x坐标{{point.x}}，y坐标{{point.y}}</div> -->
-</template>
-<script lang="ts">
-import { reactive, ref } from 'vue'
-import Tabs from '../lib/Tabs/Tabs.vue'
-import Tab from '../lib/Tabs/Tab.vue'
-// 自定义hook，函数式编程
-import usePoint from '../utils/usePoint'
 
+   
+<template>
+<h1>Tabs 示例</h1>
+<Demo :component="Tabs1Demo" />
+</template>
+
+<script lang="ts">
+import Demo from './Demo.vue'
+import Tabs1Demo from './Tabs1demo.vue'
 export default {
   components: {
-    Tabs,
-    Tab,
+    Demo
   },
   setup() {
-    const selected = ref('导航1')
-    // const point = usePoint()
     return {
-      selected,
-      // point,
+      Tabs1Demo
     }
   }
 }
 </script>
-<style lang="scss">
-  
-</style>

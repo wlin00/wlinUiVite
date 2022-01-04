@@ -57,10 +57,13 @@ export default {
           const width = navItemProperty?.width
           const currentSelectNavLeft = navItemProperty?.left
           const containerLeft = containerProperty?.left
+          console.log('left', currentSelectNavLeft)
           
           indicator.value.style.width = `${width}px`
           const computeLeft = currentSelectNavLeft - containerLeft
           indicator.value.style.left = `${computeLeft}px`
+      }, {
+        flush: 'post'
       })
     })
 
