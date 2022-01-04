@@ -46,13 +46,13 @@
     },
     setup(props:any, context:any) {
       const handleConfirm = async () => {
-        const result = props?.onConfirm?.()
+        const result = props.onConfirm()
         if (result !== false) { // 若外部回调返回false，则终止关闭
           handleClose()
         }
       }
       const handleCancel = async () => {
-        const result = props?.onCancel?.()
+        const result = props.onCancel()
         if (result !== false) {
           handleClose()
         }

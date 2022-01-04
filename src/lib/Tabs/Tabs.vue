@@ -28,13 +28,13 @@ export default {
   },
   setup(props, context) {
     const defaults = context.slots.default()
-    defaults?.length && defaults.forEach((item) => {
+    defaults.length && defaults.forEach((item) => {
       if (item.type !== Tab) {
         throw new Error('请使用正确标签Tab')
       }
     })
 
-    const titles = defaults.map((tag) => tag?.props?.title || '--')
+    const titles = defaults.map((tag) => tag.props.title || '--')
 
     const currentSelectNav = ref<HTMLDivElement>(null)
 
@@ -49,14 +49,14 @@ export default {
     onMounted (() => {
       watchEffect(() => { // onMouned中的watchEffect，只在mounted和之后的updated执行，处理副作用的钩子，根据内部依赖再次执行。蕾丝useEffect(() => {}, [id])
           // 初始化nav下划线宽度， 需获取到当前选中的nav元素
-          const navItemProperty = currentSelectNav?.value?.getBoundingClientRect()
+          const navItemProperty = currentSelectNav.value.getBoundingClientRect()
           // 获取currentSelectNav.left - container.left 差值，将其设置为下划线的left坐标
-          const containerProperty = container?.value.getBoundingClientRect()
+          const containerProperty = container.value.getBoundingClientRect()
           if (!navItemProperty || !containerProperty) { return }
           
-          const width = navItemProperty?.width
-          const currentSelectNavLeft = navItemProperty?.left
-          const containerLeft = containerProperty?.left
+          const width = navItemProperty.width
+          const currentSelectNavLeft = navItemProperty.left
+          const containerLeft = containerProperty.left
           console.log('left', currentSelectNavLeft)
           
           indicator.value.style.width = `${width}px`

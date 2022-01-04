@@ -12,6 +12,9 @@
       <router-link v-else to="/">主页</router-link>
     </li>
   </ul>
+  <!-- <li class="menu-li" v-if="currentRoute() !== '/'">
+    <router-link to="/">返回</router-link>
+  </li> -->
   <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
     <use xlink:href="#icon-menu"></use>
   </svg>
@@ -46,7 +49,7 @@ export default {
     }
     // 判断当前路由是否主页
     const currentRoute = (() => {
-      return (toRaw(route)?.currentRoute as any)?._rawValue?.fullPath || '/'
+      return (toRaw(route).currentRoute as any)._rawValue.fullPath || '/'
     })
     return {
       toggleMenu,
@@ -79,6 +82,18 @@ $color: #007974;
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
+    @media screen and ( max-width: 1930px ) { // 媒介查询
+      display: none;
+    }
+    @media screen and ( max-width: 500px ) { // 媒介查询
+      display: inline-flex;
+    }
+  }
+  .get-back {
+    width: 100%;
+    display: inline-flex;
+    justify-content: flex-end;
+    display: none;
     @media screen and ( max-width: 1930px ) { // 媒介查询
       display: none;
     }
@@ -126,13 +141,22 @@ $color: #007974;
   }
   @media (max-width: 500px) {
     >.menu {
-      display: none;
+     
     }
     >.logo {
       margin: 0 auto;
     }
     >.toggleAside {
       display: inline-block;
+    }
+  }
+  .logo {
+    display: inline-block;
+    @media screen and ( max-width: 1930px ) { // 媒介查询
+      display: inline-block;
+    }
+    @media screen and ( max-width: 500px ) { // 媒介查询
+      display: none;
     }
   }
 }
