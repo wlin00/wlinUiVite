@@ -1,11 +1,11 @@
 {
   "name": "wlin-ui-3",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/wlin.js",
-  "module": "dist/lib/wlin.esm.js",
+  "main": "dist/lib/wlin-ui-3.js",
+  "module": "dist/lib/wlin-ui-3.esm.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
