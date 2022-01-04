@@ -1,5 +1,6 @@
 <template>
 <div class="topnav">
+  <span v-if="currentRoute() !== '/'" class="doc" @click="toggleDoc">...</span>
   <router-link to="/" class="logo">
     <svg class="icon">
       <use xlink:href="#icon-king"></use>
@@ -34,18 +35,22 @@ export default {
       default: false
     }
   },
-  setup() {
+  setup(props, context) {
     const route = useRouter()
     const menuVisible = inject < Ref < boolean >> ("menuVisible"); // get
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value;
     };
+    const toggleDoc = () => {
+      context.emit('toggleDoc')
+    }
     // 判断当前路由是否主页
     const currentRoute = (() => {
       return (toRaw(route)?.currentRoute as any)?._rawValue?.fullPath || '/'
     })
     return {
       toggleMenu,
+      toggleDoc,
       currentRoute
     };
   },
@@ -65,6 +70,22 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
+  .doc {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #333;
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    @media screen and ( max-width: 1930px ) { // 媒介查询
+      display: none;
+    }
+    @media screen and ( max-width: 500px ) { // 媒介查询
+      display: inline-flex;
+    }
+  }
   .menu-li {
     >a {
       color: #333;

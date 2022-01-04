@@ -1,9 +1,12 @@
 <template>
   <div class="layout">
-    <Topnav class="nav" />
+    <Topnav class="nav" @toggleDoc="asideVisible = !asideVisible" />
     <div class="content">
       <aside v-if="asideVisible">
-        <h2 style="color:#333;text-decoration:none;">文档</h2>
+        <div>
+          <span class="close-icon" @click="asideVisible = !asideVisible">关闭</span>
+        </div>
+        <h2 style="color:#333;text-decoration:none;margin-top:20px;">文档</h2>
         <ol>
           <li class="doc-li">
             <router-link to="/doc/intro">介绍</router-link>
@@ -53,6 +56,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+  .close-icon {
+    font-size:18px;
+    font-weight: bolder;
+    color: #999;
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
 .doc-li {
   margin-top: 10px;
   display: inline-flex;
@@ -108,11 +121,12 @@ aside {
   background: lightblue;
   box-sizing: border-box;
   width: 150px;
+  z-index: 999;
   padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 70px;
+  padding-top: 10px;
   height: 100%;
   > h2 {
     margin-bottom: 4px;
