@@ -63,7 +63,7 @@ export default {
           const computeLeft = currentSelectNavLeft - containerLeft
           indicator.value.style.left = `${computeLeft}px`
       }, {
-        flush: 'post'
+        flush: 'post' // 在Dom更新后执行，可拿到改变后的Dom值
       })
     })
 
