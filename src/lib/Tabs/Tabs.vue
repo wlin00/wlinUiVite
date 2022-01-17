@@ -12,7 +12,7 @@
       <div ref="indicator" class="wlin-tabs__indicator"></div>
     </div>
     <div class="wlin-tabs__contentWrap">
-      <component class="wlin-tabs__content" :key="currentComponent.props.title" :is="currentComponent.props.title"></component>
+      <component class="wlin-tabs__content" :class="{'selected': value === target.props.title}" v-for="(target, index) in defaults" :key="index" :is="target"></component>
     </div>
   </div>
 </template>
@@ -113,6 +113,12 @@ $border-color: #d9d9d9;
   }
   &__contentWrap {
     padding: 8px 0;
+  }
+  &__content {
+    display: none;
+    &.selected {
+      display: block;
+    }
   }
   &__indicator {
     position: absolute;
