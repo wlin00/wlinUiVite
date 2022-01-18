@@ -8,6 +8,15 @@
   </router-link>
   <ul class="menu">
     <li class="menu-li">
+      <a href="https://github.com/wlin00" target="_blank">github</a>
+    </li>
+    <li class="menu-li">
+      <a href="https://wlin00.github.io/" target="_blank">博客</a>
+    </li>
+    <li class="menu-li">
+      <a href="https://wlin00.github.io/wlinUi/" target="_blank">vue2.0版</a>
+    </li>
+    <li class="menu-li">
       <router-link v-if="currentRoute() === '/'" to="/doc">文档</router-link>
       <router-link v-else to="/">主页</router-link>
     </li>
