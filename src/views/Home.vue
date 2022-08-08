@@ -9,6 +9,9 @@
         <a href="https://github.com/wlin00/wlinUiVite">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
+      <div>
+        <Button :disabled="pending" style="min-width:160px;" @click="handleClick" size="big" >{{ display }}</Button>
+      </div>
     </div>
   </div>
   <div class="features">
@@ -39,9 +42,37 @@
 </div>
 </template>
 <script lang="ts">
+import { onMounted, ref, computed } from 'vue';
 import Topnav from "../components/Topnav.vue";
+import {
+  Button
+} from "../lib/index";
+import useCountDown from '../utils/useCountDown'
+
 export default {
-  components: { Topnav },
+  components: { Topnav, Button },
+  setup(props) {
+    const COUNT_NUM = 10
+    const { count, pending, startCountDown } = useCountDown(COUNT_NUM, true)
+    onMounted(() => {
+    })
+
+    const handleClick = () => {
+      startCountDown()
+    }
+
+    const display = computed(() => {
+      return count.value === COUNT_NUM ? '倒计时按钮' : count.value
+    })
+
+    return {
+      count,
+      pending,
+      handleClick,
+      display
+    }
+
+  }
 };
 </script>
 <style lang="scss" scoped>
